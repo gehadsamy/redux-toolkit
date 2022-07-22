@@ -14,8 +14,11 @@ export const tasksSlice = createSlice({
             title: action.payload.title,
             task: action.payload.task
           }
-          state.mylist = [...state.mylist, myTask]
-          state.id++
+          // console.log(myTask.task.length);
+        if(myTask.task.length && myTask.title.length) 
+        { state.mylist = [...state.mylist, myTask]
+          state.id++}
+
         },
 
         deleteTask: (state, action)=>{

@@ -15,7 +15,7 @@ function NavBar() {
           <Nav className="me-auto">
             {/* <Nav.Link as={Link} to="/" >Home</Nav.Link>
             <Nav.Link as={Link} to="todo">ToDo</Nav.Link> */}
-           <Button>logout</Button>
+           <Button as={Link} to="/login" >logout</Button>
           </Nav>
         </Container>
       </Navbar>

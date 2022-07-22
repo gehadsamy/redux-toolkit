@@ -1,8 +1,8 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ErrorMessage } from '@hookform/error-message';
-
+// import { ErrorMessage } from '@hookform/error-message';
+import { Link } from "react-router-dom";
 import {
   Container,
   Form,
@@ -68,7 +68,7 @@ function Registration() {
           Submit
         </Button>
       </Form>
-      
+      <Button as={Link} to="/login">login</Button>
     </Container>);
     // return ( <>
     //   <form onSubmit={handleSubmit(onSubmit)}>
