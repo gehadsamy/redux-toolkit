@@ -6,20 +6,19 @@ import { Link } from "react-router-dom";
 import {
   Container,
   Form,
-  Button,
-  Row,
-  Col
-  // InputGroup,
-  // FormControl
+  Button
 } from "react-bootstrap";
 import './registration.css';
+import { useDispatch } from "react-redux";
+import { getAPI } from "../../Redux/userSlice";
+
 
 function Registration() {
 
   const {
     register, handleSubmit, watch, formState: { errors }} = useForm();
-
-  const onSubmit = (data) => console.log(data);
+    const dispatch = useDispatch();
+  const onSubmit = (data) => dispatch(getAPI(data))
   
   const onError = (error) => {
     console.log("ERROR:::", error);
@@ -63,6 +62,30 @@ function Registration() {
             : null;
         }}
       /> */}
+        </Form.Group>
+
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control name="multipleErrorInput"
+            type="password"
+            placeholder="Your password"
+            {...register("password", { required: "this field is requierd" , minLength: {
+              value: 8,
+              message: "Password must have at least 8 characters"
+            }
+          
+          })}
+      
+          />
+          {errors.password && (
+            <Form.Text className="text-danger">
+              {errors.password.message}
+            </Form.Text>
+          )}
+
+
+
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
